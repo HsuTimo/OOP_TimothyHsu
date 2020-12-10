@@ -24,12 +24,15 @@ namespace OOP_TimothyHsu.Models
                 }
                 else
                 {
-                    double amountOfCars = (AantalPersonen - AantalPersonen % 5)/5 + (AantalPersonen % 5 / AantalPersonen % 5);
+                    int extraCar = 0;
+                    if (AantalPersonen%5!=0)
+                    {
+                        extraCar = 1;
+                    }
+                    double amountOfCars = (AantalPersonen - AantalPersonen % 5)/5 + (double)extraCar;
                     return base.BerekenPrijs() + (AantalDagen * EXTRAPRIJSHUURAUTO * amountOfCars);
-                }
-                
+                } 
             }
-            
         }
     }
 }
